@@ -10,12 +10,16 @@ import java.util.List;
 @Service
 public class HistoryRecordServiceImpl implements HistoryRecordService {
 
+    private final HistoryRecordRepository historyRecordRepository;
+
     @Autowired
-    private HistoryRecordRepository historyRecordRepository;
+    public HistoryRecordServiceImpl(HistoryRecordRepository historyRecordRepository) {
+        this.historyRecordRepository = historyRecordRepository;
+    }
 
     @Override
-    public HistoryRecord saveHistoryRecord(HistoryRecord record){
-        return historyRecordRepository.save(record);
+    public HistoryRecord saveHistoryRecord(HistoryRecord historyRecord){
+        return historyRecordRepository.save(historyRecord);
     }
 
     public List<HistoryRecord> getAll(){

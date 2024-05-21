@@ -9,8 +9,6 @@ import org.springframework.ui.Model;
 @RequestMapping(path = "/")
 public class WebController {
 
-
-
     @RequestMapping("/greeting")
     public String greetings(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("name", name);
@@ -21,6 +19,4 @@ public class WebController {
     public String calculator(Model model) {
         return "calculator";
     }
-
-
 }

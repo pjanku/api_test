@@ -11,8 +11,12 @@ import java.util.List;
 @RequestMapping("/api")
 public class RestController {
 
+    private final HistoryRecordService historyRecordService;
+
     @Autowired
-    private HistoryRecordService historyRecordService;
+    public RestController(HistoryRecordService historyRecordService) {
+        this.historyRecordService = historyRecordService;
+    }
 
     @GetMapping("/test")
     String test(){

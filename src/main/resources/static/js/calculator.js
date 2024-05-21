@@ -33,14 +33,9 @@ $(document).ready(function() {
         $.ajax({
             url: "http://localhost:8080/api/history_records"
         }).then(function(data) {
-
-            for (let i = 0; i < data.length ; i++){
-                $("#tableResults").append(
-                    data[i].number1
-                );
-                makeNewRow(data[i]);
+            for (let rec of data){
+                makeNewRow(rec);
             }
-
             $('.greeting-id').append(data.id);
             $('.greeting-content').append(data.content);
         });
